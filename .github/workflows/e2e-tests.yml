@@ -7,12 +7,12 @@ on:
   workflow_dispatch:
     inputs:
       branch:
-        description: "Branch to run E2E from"
+        description: "Branch to run E2E"
         required: false
         default: "main"
 
-env: 
-  VV_COMMUNICATION_SERVICES_CONNECTION_STRING : ${{ secrets.COMMUNICATION_SERVICES_CONNECTION_STRING_E2E }}
+env:
+  VV_COMMUNICATION_SERVICES_CONNECTION_STRING: ${{ secrets.COMMUNICATION_SERVICES_CONNECTION_STRING_E2E }}
 
 jobs:
   e2e-tests:
