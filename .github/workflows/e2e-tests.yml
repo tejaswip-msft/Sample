@@ -22,7 +22,7 @@ jobs:
       # Checks-out your repository
       - uses: actions/checkout@v3
 
-      # Check out onto desired branch to run e2e tests
+      # Check out onto desired branch to run e2e
       - name: Checkout branch
         run: git checkout ${{ github.event.inputs.branch }}
 
