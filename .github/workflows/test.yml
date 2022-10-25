@@ -26,3 +26,7 @@ jobs:
       # Install docker
       - name: Check docker version
         run: docker -v
+        
+      #Pull docker image
+      - name: Pull docker image
+        run: docker pull mcr.microsoft.com/cosmosdb/windows/azure-cosmos-emulator
