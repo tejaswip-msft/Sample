@@ -24,5 +24,5 @@ jobs:
         run: git checkout ${{ github.event.inputs.branch }}
 
       # Install docker
-      - name: Install docker
-        run: sudo apt-get install docker-ce docker-ce-cli containerd.io
+      - name: Check docker version
+        run: docker -v
