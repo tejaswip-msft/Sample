@@ -75,12 +75,7 @@ const config: PlaywrightTestConfig = {
   /* Run your local dev server before starting the tests */
   webServer: {
     command: "cd ../server && npm run start:prod",
-    port: 8080,
-    env: {
-      ["VV_COSMOS_DB_NAME"]: "myDB",
-      ["VV_COSMOS_DB_CONNECTION_STRING"]:
-        "AccountEndpoint=https://localhost:8081/;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==",
-    },
+    port: 8080
   },
 };
 
