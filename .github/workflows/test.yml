@@ -23,13 +23,13 @@ jobs:
       - name: Checkout branch
         run: git checkout ${{ github.event.inputs.branch }}
 
-      # Install docker
-      - name: Check docker version
-        run: docker -v
+#       # Install docker
+#       - name: Check docker version
+#         run: docker -v
         
-      # Pull docker image
-      - name: Pull docker image
-        run: docker pull mcr.microsoft.com/cosmosdb/windows/azure-cosmos-emulator
+#       # Pull docker image
+#       - name: Pull docker image
+#         run: docker pull mcr.microsoft.com/cosmosdb/windows/azure-cosmos-emulator
         
       # Run docker image
       - name: Run docker image
