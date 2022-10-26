@@ -36,7 +36,7 @@ const testVisitWithMeetingUrl = async (page) => {
 
   //Wait for rejoin call page to load
   await expect(page.locator('[data-icon-name="Waffle"]').first()).toBeVisible();
-  await expect(page.locator('text="You left the call"').first()).toBeVisible();
+  // await expect(page.locator('text="You left the call"').first()).toBeVisible();
   await delay(DELAY_MS);
   expect(await page.screenshot()).toMatchSnapshot("endCallScreenshot.png");
 };
