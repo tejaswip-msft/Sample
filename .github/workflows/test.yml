@@ -38,7 +38,7 @@ jobs:
           Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
           Start-CosmosDbEmulator
           Get-CosmosDbEmulatorStatus
-          Get-AzCosmosDBAccountKey
+          Microsoft.Azure.Cosmos.Emulator.exe Key
 
       
 #       # Run docker image
