@@ -18,13 +18,16 @@ concurrency:
 
 env:
   VV_COMMUNICATION_SERVICES_CONNECTION_STRING: ${{ secrets.COMMUNICATION_SERVICES_CONNECTION_STRING_E2E }}
+  VV_COSMOS_DB_NAME: "myDB"
+  VV_COSMOS_DB_CONNECTION_STRING: "AccountEndpoint=https://localhost:8081/;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="
+  NODE_TLS_REJECT_UNAUTHORIZED: "0"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   update-snapshots:
     # This job will only run if the comment was on a pull requests and matches the label
     if: ${{ github.event.label.name == 'ui change' || contains( github.event.pull_request.labels.*.name, 'ui change') || github.event_name == 'workflow_dispatch' }}
-    runs-on: ubuntu-latest
+    runs-on: windows-2019
     steps:
       # Check out repo
       - uses: actions/checkout@v3
@@ -87,16 +90,15 @@ jobs:
       - name: Check for snapshot changes
         id: changescheck
         run: |
-          if [[ -z $(git status e2e-tests/tests/snapshots -s) ]]
-          then
-            echo "::set-output name=hasChanged::false"
+          if ($(git status e2e-tests/tests/snapshots -s))
+          { echo "there are changes"
+            echo "hasChanged=true" >> $GITHUB_OUTPUT }
           else
-            echo "::set-output name=hasChanged::true"
-            exit
-          fi
+          { echo "no changes"
+            echo "hasChanged=false" >> $GITHUB_OUTPUT }
 
       - name: Commit new snapshots
-        if: ${{ steps.changescheck.outputs.hasChanged == 'true' }}
+        if: ${{ steps.changescheck.outputs.hasChanged == true }}
         run: |
           git add e2e-tests/tests/*.png
           git commit -m 'Update snapshots'
