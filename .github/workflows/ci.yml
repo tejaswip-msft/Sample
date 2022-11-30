@@ -25,15 +25,15 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
       # Ensure node version is great enough
-      - name: Use Node.js v14.19.x
+      - name: Use Node.js v16.15.x
         uses: actions/setup-node@v3
         with:
-          node-version: "14.19.x"
+          node-version: "16.15.x"
 
       # Install client dependencies
       - name: Install client dependencies
@@ -62,15 +62,15 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
       # Ensure node version is great enough
-      - name: Use Node.js v14.19.x
+      - name: Use Node.js v16.15.x
         uses: actions/setup-node@v3
         with:
-          node-version: "14.19.x"
+          node-version: "16.15.x"
 
       # Install server dependencies
       - name: Install server dependencies
