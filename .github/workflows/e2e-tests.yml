@@ -38,7 +38,10 @@ jobs:
       # Install dependencies
       - name: Install client dependencies
         working-directory: ./client
-        run: npm install
+        run: |
+          node --version
+          npm install
+          node --version
 
       - name: Install server dependencies
         working-directory: ./server
